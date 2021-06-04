@@ -12,3 +12,4 @@ It is written in C++, uses Qt for GUI framework and is currently in very very <u
 
 ## Contributing  
 Any contributions are more than welcome and if anyone has an idea for a proper name or a logo I would love to hear about it.  
+For easier start are contents of every code file listed in FILES.md
