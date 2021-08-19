@@ -1,17 +1,15 @@
 cmake_minimum_required(VERSION 3.18.5)
-project(Viewer0)
+project(DiaGraph VERSION 0.0.2 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(QT_VERSION 5)
-set(REQUIRED_LIBS Core Gui Widgets)
-set(REQUIRED_LIBS_QUALIFIED Qt5::Core Qt5::Gui Qt5::Widgets)
-set(CMAKE_PREFIX_PATH /usr/include/qt5)
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-add_executable(${PROJECT_NAME} main.cpp MainWindow.cpp MainWindow.h MyGraphicsView.cpp MyGraphicsScene.cpp MyGraphicsView.h MyGraphicsScene.h createShapes.cpp toolDock.cpp)
+add_executable(DiaGraph main.cpp MainWindow.h MainWindow.cpp MainGraphicsView.h MainGraphicsScene.h MainGraphicsShape.cpp MainGraphicsShape.h MainGraphicsHandles.cpp MainGraphicsHandles.h MainGraphicsRectHandle.cpp MainGraphicsRectHandle.h MainGraphicsScene.cpp MainGraphicsView.cpp)
 
-find_package(Qt${QT_VERSION} COMPONENTS ${REQUIRED_LIBS} REQUIRED)
-target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})
+target_link_libraries(DiaGraph Qt5::Widgets)
